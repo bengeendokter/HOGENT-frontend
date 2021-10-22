@@ -114,7 +114,6 @@ dist
 
 # production
 /build
-/public
 
 # vs code
 .vscode
