@@ -1,9 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .App
 {
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .dagenlijst
 {
-  @apply bg-blue-400 grid grid-flow-col;
+  @apply grid grid-flow-row gap-8 justify-items-center mt-8;
+}
+
+.dag
+{
+  @apply grid w-3/4 text-3xl p-2 rounded-xl;
+  justify-content: space-around;
+  grid-template-areas: 
+  "datum aanw-afw";
+}
+
+.aanw-afw
+{
+  @apply grid grid-flow-col gap-3;
+  justify-content: space-around;
+  grid-area: "aanw-afw";
+}
+
+.aanw, .afw
+{
+  @apply grid text-2xl rounded-full;
+  height: 3ch;
+  width: 3ch;
+  align-content: center;
+}
+
+.datum
+{
+  grid-area: datum;
+}
+
+@media screen and (min-width: 800px)
+{
+  .dagenlijst
+  {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  }
+
+  .dag
+  {
+    grid-template-areas: 
+    "datum"
+    "aanw-afw";
+  }
 }
