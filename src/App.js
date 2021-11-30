@@ -1,51 +1,60 @@
+import axios from 'axios';
+import {useState, useEffect} from 'react';
 import './App.css';
 import Dagenlijst from "./components/Dagenlijst"
 
 function App()
 {
-  const dagen =
-  [
-    
+  // const dagen =
+  // [
+
+  //   {
+  //     datum: 20211024
+  //     , aanwezig: 10
+  //     , afwezig: 10
+  // }
+  // , {
+  //     datum: 20211031
+  //     , aanwezig: 9
+  //     , afwezig: 12
+  // }
+  // ]
+
+  const [dagen, setDagen] = useState([]);
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const getDagen = async () =>
+  {
+    try
     {
-      datum: "zo 24 okt"
-      , aanw: 10
-      , afw: 10
+      setError('');
+      setLoading(true);
+      const response = await axios.get('http://localhost:9000/api/dagen');
+      setDagen(response.data.data);
     }
-    ,
+    catch(err)
     {
-      datum: "zo 31 okt"
-      , aanw: 9
-      , afw: 12
+      setError(err);
     }
-    ,
+    finally
     {
-      datum: "zo 7 nov"
-      , aanw: 9
-      , afw: 12
-    }
-    ,
-    {
-      datum: "zo 14 nov"
-      , aanw: 9
-      , afw: 12
-    }
-    ,
-    {
-      datum: "zo 21 nov"
-      , aanw: 9
-      , afw: 12
-    }
-    ,
-    {
-      datum: "zo 29 nov"
-      , aanw: 9
-      , afw: 12
-    }
-  ]
+			setLoading(false);
+		}
+  };
+
+  useEffect(() => {
+		getDagen();
+	}, []); 
+
+
+  if (loading) return <h1>Loading...</h1>;
+
+  if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
 
   return (
     <div className="App">
-      <Dagenlijst dagen={dagen}/>
+      <Dagenlijst dagen={dagen} />
     </div>
   )
 }
