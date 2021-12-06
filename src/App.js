@@ -1,8 +1,14 @@
 import { DagenProvider } from './contexts/DagenProvider';
 import './App.css';
-import Dagenlijst from "./components/Dagenlijst"
-import DagForm from './components/DagForm';
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate
+} from "react-router-dom";
+import Dagen from './pages/Dagen';
+import Dag from './pages/Dag';
+import NotFound from './pages/NotFound';
 
 function App()
 {
@@ -10,8 +16,17 @@ function App()
   return (
     <div className="App">
       <DagenProvider>
-        <DagForm></DagForm>
-        <Dagenlijst/>
+        <Router>
+          <Routes>
+            <Route path="/" exact element={<Navigate to="/dagen" />}/>
+
+            <Route path="/dagen" exact element={<Dagen/>}/>
+
+            <Route path="/dagen/:id" exact element={<Dag/>}/>
+
+            <Route path="*" element={<NotFound/>}/>    
+          </Routes>
+        </Router>
       </DagenProvider>
     </div>
   )
