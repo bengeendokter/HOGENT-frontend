@@ -1,6 +1,4 @@
 import {createContext, useState, useEffect, useCallback} from 'react';
-import axios from 'axios';
-import config from '../config.json';
 import * as dagenApi from '../api/dagen';
 
 export const DagenContext = createContext();
@@ -57,12 +55,8 @@ export const DagenProvider = ({children}) =>
             {
                 setError();
                 setLoading(true);
-                const {data} = await axios({
-                    method: "delete",
-                    url: `${config.base_url}dagen/${id}`,
-                });
+                await dagenApi.deleteDag(id);
                 refreshDagen();
-                return data;
             } catch(error)
             {
                 console.log(error);

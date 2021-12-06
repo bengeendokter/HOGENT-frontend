@@ -14,11 +14,15 @@ export const getAllDagen = async () =>
     return data;
 }
 
-
 export const createDag = async ({
     id
 }) =>
 {
     const {data} = await axios.post(`dagen`, {id});
     return data;
+};
+
+export const deleteDag = async (id) =>
+{
+    await axios.delete(`dagen/${id}`);
 };
