@@ -5,11 +5,11 @@ import { IoTrashOutline } from "react-icons/io5";
 export default function Dag({props})
 {
   const {datum, aanwezig, afwezig} = props;
-  const {deleteDagen} = useContext(DagenContext);
+  const {deleteDag} = useContext(DagenContext);
 
   const handleRemove = useCallback(() => {
-    deleteDagen(datum);
-  }, [deleteDagen, datum]);
+    deleteDag(datum);
+  }, [deleteDag, datum]);
 
   return (
     <div className="dag bg-blue-400 text-white">      

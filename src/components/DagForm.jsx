@@ -4,16 +4,16 @@ import { useForm, } from "react-hook-form";
 
 export default function DagForm()
 {
-  const {createTransaction} = useContext(DagenContext);
+  const {createDag} = useContext(DagenContext);
   const {register, handleSubmit} = useForm();
 
 	const onSubmit = useCallback(
     async ({id}) => 
     {
-		await createTransaction({id});
+		await createDag({id});
     }
     ,
-    [createTransaction]);
+    [createDag]);
 
 
   return (

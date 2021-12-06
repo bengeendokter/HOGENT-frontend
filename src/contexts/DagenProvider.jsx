@@ -1,6 +1,7 @@
 import {createContext, useState, useEffect, useCallback} from 'react';
 import axios from 'axios';
 import config from '../config.json';
+import * as dagenApi from '../api/dagen';
 
 export const DagenContext = createContext();
 
@@ -17,9 +18,7 @@ export const DagenProvider = ({children}) =>
         {
             setError();
             setLoading(true);
-            const {data} = await axios.get(
-                `${config.base_url}dagen?limit=25&offset=0`
-            );
+            const {data} = await dagenApi.getAllDagen();
             setDagen(data.data);
         } catch(error)
         {
@@ -35,15 +34,14 @@ export const DagenProvider = ({children}) =>
         refreshDagen();
     }, [refreshDagen]);
 
-    const createTransaction = useCallback(async ({
+    const createDag = useCallback(async ({
         id
     }) => 
     {
         setError();
         try
         {
-            const {newDag} = await axios.post(`${config.base_url}dagen/`,
-                {id});
+            const newDag = await dagenApi.createDag({id});
             await refreshDagen();
             return newDag;
         } catch(error)
@@ -52,7 +50,7 @@ export const DagenProvider = ({children}) =>
         }
     }, [refreshDagen]);
 
-    const deleteDagen = useCallback(
+    const deleteDag = useCallback(
         async (id) =>
         {
             try
@@ -78,7 +76,7 @@ export const DagenProvider = ({children}) =>
     ); 
 
     return (
-        <DagenContext.Provider value={{dagen, error, loading, createTransaction, deleteDagen}}>
+        <DagenContext.Provider value={{dagen, error, loading, createDag, deleteDag}}>
             {children}
         </DagenContext.Provider>
     );
