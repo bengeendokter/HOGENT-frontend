@@ -12,7 +12,7 @@ export default function Dagenlijst()
 
   return (
     <div className="dagenlijst">
-      {dagen.map((dag) => <Dag props={dag} />)}
+      {dagen.map((dag) => <Dag key={dag.datum} props={dag} />)}
     </div>
   );
 };
