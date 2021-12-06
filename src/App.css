@@ -16,7 +16,8 @@
   @apply grid w-3/4 text-3xl p-2 rounded-xl;
   justify-content: space-around;
   grid-template-areas: 
-  "datum aanw-afw";
+  "dag-delete"
+  "aanw-afw";
 }
 
 .aanw-afw
@@ -34,10 +35,26 @@
   align-content: center;
 }
 
+.dag-delete
+{
+  @apply grid grid-flow-col gap-3;
+  justify-content: space-around;
+  grid-area: dag-delete;
+  grid-template-areas: 
+  "datum delete";
+}
+
 .datum
 {
   grid-area: datum;
 }
+
+.delete
+{
+  grid-area: delete;
+}
+
+
 
 @media screen and (min-width: 800px)
 {
@@ -49,7 +66,7 @@
   .dag
   {
     grid-template-areas: 
-    "datum"
+    "dag-delete"
     "aanw-afw";
   }
 }

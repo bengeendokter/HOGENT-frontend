@@ -42,7 +42,7 @@ export const DagenProvider = ({children}) =>
         setError();
         try
         {
-            const {newDag} = await axios.post('http://localhost:9000/api/dagen/',
+            const {newDag} = await axios.post(`${config.base_url}dagen/`,
                 {id});
             await refreshDagen();
             return newDag;
@@ -52,15 +52,34 @@ export const DagenProvider = ({children}) =>
         }
     }, [refreshDagen]);
 
-        // TODO delete
+    const deleteDagen = useCallback(
+        async (id) =>
+        {
+            try
+            {
+                setError();
+                setLoading(true);
+                const {data} = await axios({
+                    method: "delete",
+                    url: `${config.base_url}dagen/${id}`,
+                });
+                refreshDagen();
+                return data;
+            } catch(error)
+            {
+                console.log(error);
+                throw error;
+            } finally
+            {
+                setLoading(false);
+            }
+        },
+        [refreshDagen]
+    ); 
 
-
-        // TODO update
-        // TODO get id    
-
-        return (
-            <DagenContext.Provider value={{dagen, error, loading, createTransaction}}>
-                {children}
-            </DagenContext.Provider>
-        );
-    };
+    return (
+        <DagenContext.Provider value={{dagen, error, loading, createTransaction, deleteDagen}}>
+            {children}
+        </DagenContext.Provider>
+    );
+};
