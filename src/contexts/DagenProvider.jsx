@@ -34,9 +34,32 @@ export const DagenProvider = ({children}) =>
         refreshDagen();
     }, [refreshDagen]);
 
-    return (
-        <DagenContext.Provider value={{dagen, error, loading}}>
-            {children}
-        </DagenContext.Provider>
-    );
-};
+    const createTransaction = async ({
+        id
+    }) => 
+    {
+        setError();
+        try
+        {
+            const {newDag} = await axios.post('http://localhost:9000/api/dagn/',
+                {id});
+            await refreshDagen();
+            return newDag;
+        } catch(error)
+        {
+            setError(error);
+        }
+    }
+
+        // TODO delete
+    
+
+        // TODO update
+        // TODO get id    
+
+        return (
+            <DagenContext.Provider value={{dagen, error, loading, createTransaction}}>
+                {children}
+            </DagenContext.Provider>
+        );
+    };

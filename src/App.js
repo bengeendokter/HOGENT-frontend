@@ -1,8 +1,7 @@
-import axios from 'axios';
-import {useState, useEffect, createContext} from 'react';
 import { DagenProvider } from './contexts/DagenProvider';
 import './App.css';
 import Dagenlijst from "./components/Dagenlijst"
+import DagForm from './components/DagForm';
 
 
 function App()
@@ -11,7 +10,8 @@ function App()
   return (
     <div className="App">
       <DagenProvider>
-          <Dagenlijst/>
+        <DagForm></DagForm>
+        <Dagenlijst/>
       </DagenProvider>
     </div>
   )
