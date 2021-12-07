@@ -11,6 +11,7 @@ import Dagen from './pages/Dagen';
 import Dag from './pages/Dag';
 import NotFound from './pages/NotFound';
 import Leden from './pages/Leden'
+import NavMenu from './components/NavMenu';
 
 function App()
 {
@@ -20,6 +21,7 @@ function App()
       <DagenProvider>
       <LedenProvider>
         <Router>
+        <NavMenu/>
           <Routes>
             <Route path="/" exact element={<Navigate to="/dagen" />}/>
 
