@@ -56,11 +56,10 @@ export const DagenProvider = ({children}) =>
                 setError();
                 setLoading(true);
                 await dagenApi.deleteDag(id);
-                refreshDagen();
+                await refreshDagen();
             } catch(error)
             {
-                console.log(error);
-                throw error;
+                setError(error);
             } finally
             {
                 setLoading(false);
