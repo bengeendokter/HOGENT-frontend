@@ -41,12 +41,12 @@ export const LedenProvider = ({children}) =>
                 setLoading(true);
                 const lid = await ledenApi.getLidById(id);
                 await refreshLeden();
+                setLoading(false);
                 return lid;
-            } catch(error)
+            }
+            catch(error)
             {
                 setError(error)
-            } finally
-            {
                 setLoading(false);
             }
         },
@@ -55,15 +55,18 @@ export const LedenProvider = ({children}) =>
 
     const createLid = useCallback(async ({voornaam, achternaam}) => 
     {
-        setError();
         try
         {
+            setError();
+            setLoading(true);
             const newLid = await ledenApi.createLid({voornaam, achternaam});
             await refreshLeden();
+            setLoading(false);
             return newLid;
         } catch(error)
         {
             setError(error);
+            setLoading(false);
         }
     }, [refreshLeden]);   
 
@@ -76,12 +79,12 @@ export const LedenProvider = ({children}) =>
                 setLoading(true);
                 const isDeleted = await ledenApi.deleteLid(id);
                 await refreshLeden();
+                setLoading(false);
                 return isDeleted;
-            } catch(error)
+            }
+            catch(error)
             {
-                setError(error)
-            } finally
-            {
+                setError(error);
                 setLoading(false);
             }
         },

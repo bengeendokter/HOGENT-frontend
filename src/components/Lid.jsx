@@ -12,7 +12,8 @@ export default function Lid({props})
   }, [deleteLid, id]);
 
   return (
-    <div className="bg-blue-400 text-white">      
+    <div className="bg-blue-400 text-white">    
+      <p className="id">{id}</p>  
       <p className="voornaam">{voornaam}</p>
       <p className="achternaam">{achternaam}</p>
         <button

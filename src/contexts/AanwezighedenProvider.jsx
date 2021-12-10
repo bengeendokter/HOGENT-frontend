@@ -21,10 +21,12 @@ export const AanwezighedenProvider = ({children}) =>
             setLoading(true);
             const {data} = await aanwezighedenApi.getAllAanwezigheden(dag);
             setAanwezigheden(data.data);
-        } catch(error)
+        }
+        catch(error)
         {
             setError(error)
-        } finally
+        }
+        finally
         {
             setLoading(false);
         }
@@ -44,13 +46,14 @@ export const AanwezighedenProvider = ({children}) =>
                 setLoading(true);
                 const aanwezigheid = await aanwezighedenApi.getAanwezigheidById(id);
                 await refreshAanwezigheden();
+                setLoading(false);
                 return aanwezigheid;
-            } catch(error)
+            }
+            catch(error)
             {
                 setError(error)
-            } finally
-            {
                 setLoading(false);
+                return false;
             }
         },
         [refreshAanwezigheden]
@@ -65,15 +68,14 @@ export const AanwezighedenProvider = ({children}) =>
             const newAanwezigheid = await aanwezighedenApi.createAanwezigheid({dagid, lidid, aanwezig});
             await refreshAanwezigheden();
             await refreshDagen();
+            setLoading(false);
             return newAanwezigheid;
         }
         catch(error)
         {
             setError(error);
-        }
-        finally
-        {
             setLoading(false);
+            return false;
         }
     }, [refreshAanwezigheden, refreshDagen]);
 
@@ -87,15 +89,14 @@ export const AanwezighedenProvider = ({children}) =>
             const newAanwezigheid = await aanwezighedenApi.updateAanwezigheid(id, {dagid, lidid, aanwezig});
             await refreshAanwezigheden();
             await refreshDagen();
+            setLoading(false);
             return newAanwezigheid;
         }
         catch(error)
         {
             setError(error);
-        }
-        finally
-        {
             setLoading(false);
+            return false;
         }
     }, [refreshAanwezigheden, refreshDagen]);
 
@@ -109,13 +110,14 @@ export const AanwezighedenProvider = ({children}) =>
                 const isDeleted = await aanwezighedenApi.deleteAanwezigheid(id);
                 await refreshAanwezigheden();
                 await refreshDagen();
+                setLoading(false);
                 return isDeleted;
-            } catch(error)
+            }
+            catch(error)
             {
                 setError(error)
-            } finally
-            {
                 setLoading(false);
+                return false;
             }
         },
         [refreshAanwezigheden, refreshDagen]

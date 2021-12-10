@@ -36,15 +36,19 @@ export const DagenProvider = ({children}) =>
         id
     }) => 
     {
-        setError();
         try
         {
+            setError();
+            setLoading(true)
             const newDag = await dagenApi.createDag({id});
             await refreshDagen();
+            setLoading(false);
             return newDag;
-        } catch(error)
+        }
+        catch(error)
         {
             setError(error);
+            setLoading(false);
         }
     }, [refreshDagen]);
 
@@ -57,10 +61,12 @@ export const DagenProvider = ({children}) =>
                 setLoading(true);
                 await dagenApi.deleteDag(id);
                 await refreshDagen();
-            } catch(error)
+            }
+            catch(error)
             {
                 setError(error);
-            } finally
+            }
+            finally
             {
                 setLoading(false);
             }
