@@ -1,26 +1,37 @@
 import React, { useCallback, useContext } from 'react';
-import { LedenContext } from '../contexts/LedenProvider';
+import { AanwezighedenContext } from '../contexts/AanwezighedenProvider';
 import { IoTrashOutline } from "react-icons/io5";
 
-export default function Lid({props})
+export default function Aanwezigheid({props})
 {
-  const {id, voornaam, achternaam} = props;
-  const {deleteLid} = useContext(LedenContext);
+  const {id, dagid, lidid, aanwezig} = props;
+  const {deleteAanwezigheid, updateAanwezigheid} = useContext(AanwezighedenContext);
 
   const handleRemove = useCallback(() => {
-    deleteLid(id);
-  }, [deleteLid, id]);
+    deleteAanwezigheid(id);
+  }, [deleteAanwezigheid, id]);
+
+  const handleUpdate = useCallback(() => {
+    updateAanwezigheid(id, {dagid, lidid, aanwezig: !Boolean(aanwezig)});
+  }, [updateAanwezigheid, id, dagid, lidid, aanwezig]);
 
   return (
     <div className="bg-blue-400 text-white">      
-      <p className="voornaam">{voornaam}</p>
-      <p className="achternaam">{achternaam}</p>
+      <p className="id">{id}</p>
+      <p className="dagid">{dagid}</p>
+      <p className="lidid">{lidid}</p>
+      <p className="aanwezig">{aanwezig}</p>
         <button
               data-cy="transaction_remove_btn"
               onClick={handleRemove}
               className="delete"
             >
               <IoTrashOutline />
+        </button>
+        <button
+              onClick={handleUpdate}
+            >
+              Update
         </button>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useCallback, useContext } from 'react';
 import { DagenContext } from '../contexts/DagenProvider';
 import { IoTrashOutline } from "react-icons/io5";
+import {Link} from "react-router-dom";
 
 export default function Dag({props})
 {
@@ -31,6 +32,9 @@ export default function Dag({props})
           <p>{afwezig}</p>
         </div>
       </div>
+      <Link to={`/dagen/${datum}`} >
+            Open overzicht
+        </Link>
     </div>
   );
 };

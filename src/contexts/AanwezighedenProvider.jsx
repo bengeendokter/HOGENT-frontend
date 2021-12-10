@@ -16,7 +16,7 @@ export const AanwezighedenProvider = ({children}) =>
         {
             setError();
             setLoading(true);
-            const {data} = await aanwezighedenApi.getAllAanwezigheden();
+            const {data} = await aanwezighedenApi.getAllAanwezigheden(20211109);
             setAanwezigheden(data.data);
         } catch(error)
         {
@@ -53,13 +53,13 @@ export const AanwezighedenProvider = ({children}) =>
         [refreshAanwezigheden]
     );
 
-    const createAanwezigheid = useCallback(async ({voornaam, achternaam}) => 
+    const createAanwezigheid = useCallback(async ({dagid, lidid, aanwezig}) => 
     {
         try
         {
             setError();
             setLoading(true);
-            const newAanwezigheid = await aanwezighedenApi.createAanwezigheid({voornaam, achternaam});
+            const newAanwezigheid = await aanwezighedenApi.createAanwezigheid({dagid, lidid, aanwezig});
             await refreshAanwezigheden();
             return newAanwezigheid;
         }
@@ -74,13 +74,13 @@ export const AanwezighedenProvider = ({children}) =>
     }, [refreshAanwezigheden]);
 
 
-    const updateAanwezigheid = useCallback(async (id, {voornaam, achternaam}) => 
+    const updateAanwezigheid = useCallback(async (id, {dagid, lidid, aanwezig}) => 
     {
         try
         {
             setError();
             setLoading(true);
-            const newAanwezigheid = await aanwezighedenApi.updateAanwezigheid(id, {voornaam, achternaam});
+            const newAanwezigheid = await aanwezighedenApi.updateAanwezigheid(id, {dagid, lidid, aanwezig});
             await refreshAanwezigheden();
             return newAanwezigheid;
         }

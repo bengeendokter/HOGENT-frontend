@@ -1,5 +1,6 @@
 import { DagenProvider } from './contexts/DagenProvider';
 import { LedenProvider } from './contexts/LedenProvider';
+import { AanwezighedenProvider } from './contexts/AanwezighedenProvider';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -20,6 +21,7 @@ function App()
     <div className="App">
       <DagenProvider>
       <LedenProvider>
+      <AanwezighedenProvider>
         <Router>
         <NavMenu/>
           <Routes>
@@ -34,6 +36,7 @@ function App()
             <Route path="*" element={<NotFound/>}/>    
           </Routes>
         </Router>
+      </AanwezighedenProvider>
       </LedenProvider>
       </DagenProvider>
     </div>
