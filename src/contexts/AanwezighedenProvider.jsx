@@ -1,4 +1,5 @@
-import {createContext, useState, useEffect, useCallback} from 'react';
+import {createContext, useState, useEffect, useCallback, useContext} from 'react';
+import { DagenContext } from '../contexts/DagenProvider';
 import * as aanwezighedenApi from '../api/aanwezigheden';
 
 export const AanwezighedenContext = createContext();
@@ -8,7 +9,9 @@ export const AanwezighedenProvider = ({children}) =>
 
     const [aanwezigheden, setAanwezigheden] = useState([]);
     const [error, setError] = useState();
+    const [dag, setDag] = useState(0);
     const [loading, setLoading] = useState(false);
+    const { refreshDagen } = useContext(DagenContext);
 
     const refreshAanwezigheden = useCallback(async () =>
     {
@@ -16,7 +19,7 @@ export const AanwezighedenProvider = ({children}) =>
         {
             setError();
             setLoading(true);
-            const {data} = await aanwezighedenApi.getAllAanwezigheden(20211109);
+            const {data} = await aanwezighedenApi.getAllAanwezigheden(dag);
             setAanwezigheden(data.data);
         } catch(error)
         {
@@ -25,12 +28,12 @@ export const AanwezighedenProvider = ({children}) =>
         {
             setLoading(false);
         }
-    }, []);
+    }, [dag]);
 
     useEffect(() =>
     {
         refreshAanwezigheden();
-    }, [refreshAanwezigheden]);
+    }, [refreshAanwezigheden, dag]);
 
     const getAanwezigheidById = useCallback(
         async (id) =>
@@ -61,6 +64,7 @@ export const AanwezighedenProvider = ({children}) =>
             setLoading(true);
             const newAanwezigheid = await aanwezighedenApi.createAanwezigheid({dagid, lidid, aanwezig});
             await refreshAanwezigheden();
+            await refreshDagen();
             return newAanwezigheid;
         }
         catch(error)
@@ -71,7 +75,7 @@ export const AanwezighedenProvider = ({children}) =>
         {
             setLoading(false);
         }
-    }, [refreshAanwezigheden]);
+    }, [refreshAanwezigheden, refreshDagen]);
 
 
     const updateAanwezigheid = useCallback(async (id, {dagid, lidid, aanwezig}) => 
@@ -82,6 +86,7 @@ export const AanwezighedenProvider = ({children}) =>
             setLoading(true);
             const newAanwezigheid = await aanwezighedenApi.updateAanwezigheid(id, {dagid, lidid, aanwezig});
             await refreshAanwezigheden();
+            await refreshDagen();
             return newAanwezigheid;
         }
         catch(error)
@@ -92,7 +97,7 @@ export const AanwezighedenProvider = ({children}) =>
         {
             setLoading(false);
         }
-    }, [refreshAanwezigheden]);
+    }, [refreshAanwezigheden, refreshDagen]);
 
     const deleteAanwezigheid = useCallback(
         async (id) =>
@@ -103,6 +108,7 @@ export const AanwezighedenProvider = ({children}) =>
                 setLoading(true);
                 const isDeleted = await aanwezighedenApi.deleteAanwezigheid(id);
                 await refreshAanwezigheden();
+                await refreshDagen();
                 return isDeleted;
             } catch(error)
             {
@@ -112,11 +118,11 @@ export const AanwezighedenProvider = ({children}) =>
                 setLoading(false);
             }
         },
-        [refreshAanwezigheden]
+        [refreshAanwezigheden, refreshDagen]
     );
 
     return (
-        <AanwezighedenContext.Provider value={{aanwezigheden, error, loading, getAanwezigheidById, createAanwezigheid, updateAanwezigheid, deleteAanwezigheid}}>
+        <AanwezighedenContext.Provider value={{setDag, aanwezigheden, error, loading, getAanwezigheidById, createAanwezigheid, updateAanwezigheid, deleteAanwezigheid}}>
             {children}
         </AanwezighedenContext.Provider>
     );

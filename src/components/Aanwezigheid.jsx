@@ -5,6 +5,7 @@ import { IoTrashOutline } from "react-icons/io5";
 export default function Aanwezigheid({props})
 {
   const {id, dagid, lidid, aanwezig} = props;
+  // TODO onvang meer props van api zoals lidnaam
   const {deleteAanwezigheid, updateAanwezigheid} = useContext(AanwezighedenContext);
 
   const handleRemove = useCallback(() => {

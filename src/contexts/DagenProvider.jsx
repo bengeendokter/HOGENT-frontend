@@ -69,7 +69,7 @@ export const DagenProvider = ({children}) =>
     ); 
 
     return (
-        <DagenContext.Provider value={{dagen, error, loading, createDag, deleteDag}}>
+        <DagenContext.Provider value={{dagen, error, loading, refreshDagen, createDag, deleteDag}}>
             {children}
         </DagenContext.Provider>
     );
