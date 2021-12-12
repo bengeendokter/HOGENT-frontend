@@ -12,6 +12,9 @@ import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
 import { StaleWhileRevalidate } from 'workbox-strategies';
+import { offlineFallback } from 'workbox-recipes';
+import { setDefaultHandler } from 'workbox-routing';
+import { NetworkOnly } from 'workbox-strategies';
 
 clientsClaim();
 
@@ -70,3 +73,8 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+setDefaultHandler(
+  new NetworkOnly()
+);
+
+offlineFallback();

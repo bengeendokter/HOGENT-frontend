@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="229.973" y1="75.1" x2="229.973" y2="234.646" id="gradient-1" gradientTransform="matrix(0.851997, 0, 0, 0.851997, 148.156326, 1.041431)">
+      <stop offset="0" style="stop-color: rgba(243, 47, 47, 1)"/>
+      <stop offset="1" style="stop-color: rgba(178, 10, 10, 1)"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="235.315" y1="274.769" x2="235.315" y2="456.24" id="gradient-0" gradientTransform="matrix(-0.006381, -0.8269, 0.902634, -0.00656, 13.403404, 510.985493)">
+      <stop offset="0" style="stop-color: rgb(244, 48, 48);"/>
+      <stop offset="1" style="stop-color: rgba(163, 11, 11, 1)"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="329.28" y1="222.649" x2="329.28" y2="381.811" id="gradient-3" gradientTransform="matrix(1, 0, 0, 1, -169.392548, 53.161675)">
+      <stop offset="0" style="stop-color: rgba(47, 243, 96, 1)"/>
+      <stop offset="1" style="stop-color: rgba(10, 178, 52, 1)"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="333.261" y1="62.768" x2="333.261" y2="198.7" id="gradient-2" gradientTransform="matrix(1, 0, 0, 1, -169.392548, 53.161675)">
+      <stop offset="0" style="stop-color: rgba(47, 243, 96, 1)"/>
+      <stop offset="1" style="stop-color: rgba(10, 178, 52, 1)"/>
+    </linearGradient>
+  </defs>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 15px; fill: url(#gradient-1);" cx="344.093" cy="132.993" rx="67.966" ry="67.966"/>
+  <path style="stroke: rgb(0, 0, 0); fill: url(#gradient-0); stroke-width: 15px;" d="M 208.444 384.066 L 471.778 382 C 471.778 382 460.403 224.634 343.238 224.907 C 226.074 225.182 208.444 384.894 208.444 384.066 Z"/>
+  <path style="stroke-width: 15px; stroke: rgb(0, 0, 0); fill: url(#gradient-3);" d="M 28.221 434.97 L 291.555 432.904 C 291.555 432.904 280.179 275.537 163.015 275.811 C 45.851 276.085 28.221 435.798 28.221 434.97 Z"/>
+  <ellipse style="stroke-width: 15px; stroke: rgb(0, 0, 0); fill: url(#gradient-2);" cx="163.869" cy="183.896" rx="67.966" ry="67.966"/>
+</svg>
