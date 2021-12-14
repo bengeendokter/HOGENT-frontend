@@ -2,4 +2,5 @@
     "base_url":"http://localhost:9000/api/"
     , "local_url":"http://localhost:9000/api/"
     , "lan_url":"http://192.168.0.130:9000/api/"
+    , "token_key": "auth_token"
 }

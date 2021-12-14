@@ -21,6 +21,7 @@ export default function NavMenu()
             <nav className="flex space-x-6">
                 <NavItem to="/dagen" label="Dagen" />
                 <NavItem to="/leden" label="Leden" />
+                <p>Log Out</p>
             </nav>
         </>
     );
