@@ -2,7 +2,7 @@ import {axios} from '.';
 
 export const getAllAanwezigheden = async (dagid) =>
 {
-    const data = await axios.get(
+    const data = await axios().get(
         `aanwezigheden/dag/${dagid}`,
         {
             params: {
@@ -16,7 +16,7 @@ export const getAllAanwezigheden = async (dagid) =>
 
 export const getAanwezigheidById = async (id) =>
 {
-    const {data} = await axios.get(`aanwezigheden/${id}`);
+    const {data} = await axios().get(`aanwezigheden/${id}`);
     return data;
 }
 
@@ -24,7 +24,7 @@ export const createAanwezigheid = async ({
     dagid, lidid, aanwezig
 }) =>
 {
-    const {data} = await axios.post(`aanwezigheden`, {
+    const {data} = await axios().post(`aanwezigheden`, {
         dagid, lidid, aanwezig
     });
     return data;
@@ -34,7 +34,7 @@ export const updateAanwezigheid = async (id, {
     dagid, lidid, aanwezig
 }) =>
 {
-    const {data} = await axios.put(`aanwezigheden/${id}`, {
+    const {data} = await axios().put(`aanwezigheden/${id}`, {
         dagid, lidid, aanwezig
     });
     return data;
@@ -42,6 +42,6 @@ export const updateAanwezigheid = async (id, {
 
 export const deleteAanwezigheid = async (id) =>
 {
-    const {data} = await axios.delete(`aanwezigheden/${id}`);
+    const {data} = await axios().delete(`aanwezigheden/${id}`);
     return data;
 };

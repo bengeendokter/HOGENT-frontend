@@ -1,10 +1,10 @@
-import {axios} from '.';
+import {axios, axiosNoAuth} from '.';
 
 export const login = async (email, password) =>
 {
     const {
         data
-    } = await axios.post(`users/login`, {
+    } = await axiosNoAuth().post(`users/login`, {
         email,
         password
     });
@@ -19,7 +19,7 @@ export const register = async ({
 {
     const {
         data
-    } = await axios.post(`users/register`, {
+    } = await axiosNoAuth().post(`users/register`, {
         name,
         email,
         password
@@ -31,6 +31,6 @@ export const getUserById = async (id) =>
 {
     const {
         data
-    } = await axios.get(`users/${id}`);
+    } = await axios().get(`users/${id}`);
     return data;
 }

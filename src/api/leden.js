@@ -2,7 +2,7 @@ import {axios} from '.';
 
 export const getAllLeden = async () =>
 {
-    const data = await axios.get(
+    const data = await axios().get(
         'leden',
         {
             params: {
@@ -16,7 +16,7 @@ export const getAllLeden = async () =>
 
 export const getLidById = async (id) =>
 {
-    const {data} = await axios.get(`leden/${id}`);
+    const {data} = await axios().get(`leden/${id}`);
     return data;
 }
 
@@ -25,7 +25,7 @@ export const createLid = async ({
     achternaam
 }) =>
 {
-    const {data} = await axios.post(`leden`, {
+    const {data} = await axios().post(`leden`, {
         voornaam,
         achternaam
     });
@@ -34,6 +34,6 @@ export const createLid = async ({
 
 export const deleteLid = async (id) =>
 {
-    const {data} = await axios.delete(`leden/${id}`);
+    const {data} = await axios().delete(`leden/${id}`);
     return data;
 };

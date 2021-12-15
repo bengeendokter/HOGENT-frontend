@@ -1,6 +1,6 @@
 import {createContext, useMemo, useState, useCallback, useEffect, useContext} from 'react';
 import * as usersApi from '../api/users';
-import * as api from '../api';
+// import * as api from '../api';
 import config from '../config.json';
 
 const JWT_TOKEN_KEY = config.token_key;
@@ -83,7 +83,8 @@ export const AuthProvider = ({
             token = null;
         }
 
-        api.setAuthToken(token);
+        // TODO lijn hieronder max weg als we axios staads opnieuw aanmaken
+        // api.setAuthToken(token);
         setToken(token);
         setReady(token && stillValid);
 
