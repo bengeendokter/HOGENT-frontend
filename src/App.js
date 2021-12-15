@@ -16,6 +16,7 @@ import Dag from './pages/Dag';
 import NotFound from './pages/NotFound';
 import Leden from './pages/Leden'
 import NavMenu from './components/NavMenu';
+import PrivateRoute from "./components/PrivateRoute";
 
 function App()
 {
@@ -31,13 +32,22 @@ function App()
                 <Routes>
                   <Route path="/" exact element={<Navigate to="/dagen" />} />
 
-                  <Route path="/dagen" exact element={<Dagen />} />
+                  <Route path="/dagen" exact element={
+                    <PrivateRoute path="/dagen" exact>
+                      <Dagen />
+                    </PrivateRoute>} />
 
-                  <Route path="/dagen/:id" exact element={<Dag />} />
+                  <Route path="/dagen/:id" exact element={
+                    <PrivateRoute path="/dagen/:id" exact>
+                      <Dag />
+                    </PrivateRoute>} />
 
-                  <Route path="/leden" exact element={<Leden />}/>
+                  <Route path="/leden" exact element={
+                    <PrivateRoute path="/leden" exact>
+                      <Leden />
+                    </PrivateRoute>} />
 
-                  <Route path="/login" exact element={<Login />}/>
+                  <Route path="/login" exact element={<Login />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>

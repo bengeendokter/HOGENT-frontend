@@ -19,7 +19,7 @@ export default function Login()
             if(success)
             {
                 // we kunnen niet op terug duwen om terug naar de login te gaan
-                history.replace('/');
+                history('/', { replace: true });
             }
         }, [history, login]);
 

@@ -1,6 +1,7 @@
 import {useMemo} from 'react';
-import {Redirect, Route, useLocation} from 'react-router';
+import {Navigate, useLocation} from 'react-router';
 import {useSession} from '../contexts/AuthProvider';
+
 
 export default function PrivateRoute({children, role, ...rest})
 {
@@ -14,14 +15,13 @@ export default function PrivateRoute({children, role, ...rest})
     }, [isAuthed, role, hasRole]);
 
     return (
-        <Route {...rest}>
-            {
-                canShowRoute ? (
+            canShowRoute ?
+                (
                     children
-                ) : (
-                    <Redirect from={pathname} to="/login" />
                 )
-            }
-        </Route>
+                :
+                (
+                    <Navigate from={pathname} to="/login" />
+                )
     );
 }
