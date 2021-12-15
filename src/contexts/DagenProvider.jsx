@@ -1,11 +1,12 @@
 import {createContext, useState, useEffect, useCallback} from 'react';
 import * as dagenApi from '../api/dagen';
+import { useSession } from './AuthProvider';
 
 export const DagenContext = createContext();
 
 export const DagenProvider = ({children}) =>
 {
-
+    const { ready: authReady } = useSession();
     const [dagen, setDagen] = useState([]);
     const [error, setError] = useState();
     const [loading, setLoading] = useState(false);
@@ -29,8 +30,11 @@ export const DagenProvider = ({children}) =>
 
     useEffect(() =>
     {
+        if(authReady)
+        {
         refreshDagen();
-    }, [refreshDagen]);
+        }
+    }, [authReady, refreshDagen]);
 
     const createDag = useCallback(async ({
         id

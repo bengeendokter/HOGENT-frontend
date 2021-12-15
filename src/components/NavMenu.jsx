@@ -28,16 +28,17 @@ export default function NavMenu()
     return (
         <>
             <nav className="flex space-x-6">
-                <NavItem to="/dagen" label="Dagen" />
-                <NavItem to="/leden" label="Leden" />
+
                 {
                     !isAuthed ? (
                         <>
-                            <NavItem to="/login" label="Sign in" />
+            
                         </>
                     ) : (
                         <>
-                            <button onClick={handleLogout}>
+                            <NavItem to="/dagen" label="Dagen" />
+                            <NavItem to="/leden" label="Leden" />
+                            <button className={`hover:text-blue-500` } onClick={handleLogout}>
                                 Sign out
                             </button>
                         </>

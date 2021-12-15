@@ -1,11 +1,12 @@
 import {createContext, useState, useEffect, useCallback} from 'react';
 import * as ledenApi from '../api/leden';
+import { useSession } from './AuthProvider';
 
 export const LedenContext = createContext();
 
 export const LedenProvider = ({children}) =>
 {
-
+    const { ready: authReady } = useSession();
     const [leden, setLeden] = useState([]);
     const [error, setError] = useState();
     const [loading, setLoading] = useState(false);
@@ -29,8 +30,11 @@ export const LedenProvider = ({children}) =>
 
     useEffect(() =>
     {
+        if(authReady)
+        {
         refreshLeden();
-    }, [refreshLeden]);
+        }
+    }, [authReady, refreshLeden]);
 
     const getLidById = useCallback(
         async (id) =>

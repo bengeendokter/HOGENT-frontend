@@ -1,12 +1,13 @@
 import {createContext, useState, useEffect, useCallback, useContext} from 'react';
 import { DagenContext } from '../contexts/DagenProvider';
 import * as aanwezighedenApi from '../api/aanwezigheden';
+import { useSession } from './AuthProvider';
 
 export const AanwezighedenContext = createContext();
 
 export const AanwezighedenProvider = ({children}) =>
 {
-
+    const { ready: authReady } = useSession();
     const [aanwezigheden, setAanwezigheden] = useState([]);
     const [error, setError] = useState();
     const [dag, setDag] = useState(0);
@@ -34,8 +35,11 @@ export const AanwezighedenProvider = ({children}) =>
 
     useEffect(() =>
     {
+        if(authReady)
+        {
         refreshAanwezigheden();
-    }, [refreshAanwezigheden, dag]);
+        }
+    }, [authReady, refreshAanwezigheden, dag]);
 
     const getAanwezigheidById = useCallback(
         async (id) =>

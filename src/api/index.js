@@ -1,7 +1,6 @@
 import axiosRoot from 'axios';
 import config from '../config.json';
 
-// TODO Authorization
 export const axios = axiosRoot.create({
     baseURL: config.base_url
     , headers: {
