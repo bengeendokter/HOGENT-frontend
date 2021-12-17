@@ -2,7 +2,7 @@
   "name": "frontendweb-pieter-2122-benartshogent",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://benartshogent.github.io/frontendweb-pieter-2122-benartshogent/",
   "dependencies": {
     "@craco/craco": "^6.3.0",
     "@testing-library/jest-dom": "^5.11.4",
