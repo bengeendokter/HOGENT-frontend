@@ -32,7 +32,7 @@ export default function NavMenu()
                 {
                     !isAuthed ? (
                         <>
-            
+                            <NavItem to="/dagen" label="Dagen" />
                         </>
                     ) : (
                         <>
