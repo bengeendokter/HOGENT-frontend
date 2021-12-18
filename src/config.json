@@ -1,5 +1,5 @@
 {
-    "base_url": "http://localhost:9000/api/"
+    "base_url": "https://aanwezigheden.herokuapp.com/api/"
     , "local_url": "http://localhost:9000/api/"
     , "lan_url": "http://192.168.0.130:9000/api/"
     , "heroku_url": "https://aanwezigheden.herokuapp.com/api/"
