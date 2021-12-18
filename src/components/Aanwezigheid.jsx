@@ -17,7 +17,7 @@ export default function Aanwezigheid({props})
   }, [updateAanwezigheid, id, dagid, lidid, aanwezig]);
 
   return (
-    <div className="bg-blue-400 text-white">      
+    <div className={`${aanwezig ? "bg-green-400" : "bg-red-600"}  text-white`}>      
       <p className="id">{id}</p>
       <p className="dagid">{dagid}</p>
       <p className="lidid">{lidid}</p>

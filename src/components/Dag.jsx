@@ -1,7 +1,8 @@
-import React, { useCallback, useContext } from 'react';
-import { DagenContext } from '../contexts/DagenProvider';
-import { IoTrashOutline } from "react-icons/io5";
+import React, {useCallback, useContext} from 'react';
+import {DagenContext} from '../contexts/DagenProvider';
+import {IoTrashOutline} from "react-icons/io5";
 import {Link} from "react-router-dom";
+import { formatDate } from '../hooks/useFormat';
 
 export default function Dag({props})
 {
@@ -9,20 +10,21 @@ export default function Dag({props})
   const {datum, aanwezig, afwezig} = props;
   const {deleteDag} = useContext(DagenContext);
 
-  const handleRemove = useCallback(() => {
+  const handleRemove = useCallback(() =>
+  {
     deleteDag(datum);
   }, [deleteDag, datum]);
 
   return (
-    <div className="dag bg-blue-400 text-white">      
+    <div className="dag bg-blue-400 text-white">
       <div className="dag-delete">
-      <p className="datum">{datum}</p>
+        <p className="datum">{formatDate(datum)}</p>
         <button
-              data-cy="transaction_remove_btn"
-              onClick={handleRemove}
-              className="delete"
-            >
-              <IoTrashOutline />
+          data-cy="transaction_remove_btn"
+          onClick={handleRemove}
+          className="delete"
+        >
+          <IoTrashOutline />
         </button>
       </div>
       <div className="aanw-afw">
@@ -34,8 +36,8 @@ export default function Dag({props})
         </div>
       </div>
       <Link to={`/dagen/${datum}`} >
-            Open overzicht
-        </Link>
+        Open overzicht
+      </Link>
     </div>
   );
 };
