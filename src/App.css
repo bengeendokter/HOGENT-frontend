@@ -1,10 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+:root 
+{
+  --clr-interact: hsla(274, 61%, 69%, 1);
+  --clr-text: hsla(0, 0%, 100%, 1);
+  --clr-primary: hsla(202, 54%, 61%, 1);
+  --clr-positive: hsla(148, 54%, 65%, 1);
+  --clr-negative: hsla(0, 54%, 65%, 1);
+  --clr-active: hsla(61, 100%, 50%, 1);
+}
+
 .App
 {
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 100px;
 }
+
+ /* nav menu */
+.nav-menu
+{
+  background-color: var(--clr-interact);
+  color: var(--clr-text);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  align-items: center;
+  height: 50px;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.nav-btn:hover, .nav-btn-act
+{
+  color: var(--clr-active);
+}
+
 
 .dagenlijst
 {

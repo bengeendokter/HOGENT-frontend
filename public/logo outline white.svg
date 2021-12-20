@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 500 500"
+   version="1.1"
+   id="svg4584"
+   sodipodi:docname="logo outline white.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata4588">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1106"
+     id="namedview4586"
+     showgrid="false"
+     inkscape:zoom="1.2289516"
+     inkscape:cx="39.323891"
+     inkscape:cy="348.33953"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4584" />
+  <defs
+     id="defs4574">
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       x1="229.973"
+       y1="75.1"
+       x2="229.973"
+       y2="234.646"
+       id="gradient-1"
+       gradientTransform="matrix(0.851997, 0, 0, 0.851997, 148.156326, 1.041431)">
+      <stop
+         offset="0"
+         style="stop-color: rgba(243, 47, 47, 1)"
+         id="stop4554" />
+      <stop
+         offset="1"
+         style="stop-color: rgba(178, 10, 10, 1)"
+         id="stop4556" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       x1="235.315"
+       y1="274.769"
+       x2="235.315"
+       y2="456.24"
+       id="gradient-0"
+       gradientTransform="matrix(-0.006381, -0.8269, 0.902634, -0.00656, 13.403404, 510.985493)">
+      <stop
+         offset="0"
+         style="stop-color: rgb(244, 48, 48);"
+         id="stop4559" />
+      <stop
+         offset="1"
+         style="stop-color: rgba(163, 11, 11, 1)"
+         id="stop4561" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       x1="329.28"
+       y1="222.649"
+       x2="329.28"
+       y2="381.811"
+       id="gradient-3"
+       gradientTransform="matrix(1, 0, 0, 1, -169.392548, 53.161675)">
+      <stop
+         offset="0"
+         style="stop-color: rgba(47, 243, 96, 1)"
+         id="stop4564" />
+      <stop
+         offset="1"
+         style="stop-color: rgba(10, 178, 52, 1)"
+         id="stop4566" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       x1="333.261"
+       y1="62.768"
+       x2="333.261"
+       y2="198.7"
+       id="gradient-2"
+       gradientTransform="matrix(1, 0, 0, 1, -169.392548, 53.161675)">
+      <stop
+         offset="0"
+         style="stop-color: rgba(47, 243, 96, 1)"
+         id="stop4569" />
+      <stop
+         offset="1"
+         style="stop-color: rgba(10, 178, 52, 1)"
+         id="stop4571" />
+    </linearGradient>
+  </defs>
+  <ellipse
+     style="stroke:#ffffff;stroke-width:15px;fill:none;stroke-opacity:1"
+     cx="344.093"
+     cy="132.993"
+     rx="67.966"
+     ry="67.966"
+     id="ellipse4576" />
+  <path
+     style="stroke:#ffffff;fill:none;stroke-width:15px;stroke-opacity:1"
+     d="M 343.23828 224.90625 C 287.4891 225.0371 254.28557 261.26792 234.7832 299.12305 A 79.298396 43.95707 58.586637 0 1 265.27148 331.94727 A 79.298396 43.95707 58.586637 0 1 285.03125 383.46484 L 471.77734 382 C 471.77734 382 460.40328 224.63325 343.23828 224.90625 z "
+     id="path4578" />
+  <path
+     style="stroke-width:15px;stroke:#ffffff;fill:none;stroke-opacity:1"
+     d="M 28.221 434.97 L 291.555 432.904 C 291.555 432.904 280.179 275.537 163.015 275.811 C 45.851 276.085 28.221 435.798 28.221 434.97 Z"
+     id="path4580" />
+  <ellipse
+     style="stroke-width:15px;stroke:#ffffff;fill:none;stroke-opacity:1"
+     cx="163.869"
+     cy="183.896"
+     rx="67.966"
+     ry="67.966"
+     id="ellipse4582" />
+</svg>
