@@ -17,7 +17,7 @@ export default function AanwezigheidForm()
       await createAanwezigheid({dagid, lidid, aanwezig});
     }
     ,
-    [createAanwezigheid]);
+    [createAanwezigheid, dagid]);
 
 
   return (
