@@ -4,8 +4,7 @@ import { IoTrashOutline } from "react-icons/io5";
 
 export default function Aanwezigheid({props})
 {
-  const {id, dagid, lidid, aanwezig} = props;
-  // TODO onvang meer props van api zoals lidnaam
+  const {id, dagid, lidid, aanwezig, voornaam, achternaam} = props;
   const {deleteAanwezigheid, updateAanwezigheid} = useContext(AanwezighedenContext);
 
   const handleRemove = useCallback(() => {
@@ -18,9 +17,8 @@ export default function Aanwezigheid({props})
 
   return (
     <div className={`${aanwezig ? "bg-green-400" : "bg-red-600"}  text-white`}>      
-      <p className="id">{id}</p>
-      <p className="dagid">{dagid}</p>
-      <p className="lidid">{lidid}</p>
+      <p className="voornaam">{voornaam}</p>
+      <p className="achternaam">{achternaam}</p>
       <p className="aanwezig">{aanwezig}</p>
         <button
               data-cy="transaction_remove_btn"
