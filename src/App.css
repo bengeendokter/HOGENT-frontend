@@ -8,6 +8,31 @@
   --clr-positive: hsla(148, 54%, 65%, 1);
   --clr-negative: hsla(0, 54%, 65%, 1);
   --clr-active: hsla(61, 100%, 50%, 1);
+  --clr-interact-hover: hsla(274, 61%, 50%, 1);
+  
+}
+
+::selection {
+  color: hsla(0, 0%, 0%, 1);;
+  background: var(--clr-text);
+}
+
+::-webkit-scrollbar {
+  width: 0em;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vw;
+  margin-block: 0.5em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-interact);
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-interact-hover);
 }
 
 .App
@@ -15,6 +40,13 @@
   text-align: center;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 100px;
+}
+
+main
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
  /* nav menu */
@@ -34,11 +66,43 @@
   justify-content: center;
 }
 
-.nav-btn:hover, .nav-btn-act
+.nav-btn
+{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-btn:hover
+{
+  background-color: var(--clr-interact-hover);
+}
+
+.active
 {
   color: var(--clr-active);
 }
 
+/* buttons */
+
+.btn-add
+{
+  background-color: var(--clr-interact);
+  color: var(--clr-text);
+  width: 70px;
+  height: 70px;
+  font-size: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-add:hover
+{
+  background-color: var(--clr-interact-hover);
+  color: var(--clr-active);
+}
 
 .dagenlijst
 {

@@ -17,6 +17,9 @@ import NotFound from './pages/NotFound';
 import Leden from './pages/Leden'
 import NavMenu from './components/NavMenu';
 import PrivateRoute from "./components/PrivateRoute";
+import DagForm from './pages/DagForm';
+import AanwezigheidForm from './pages/AanwezigheidForm';
+import LidForm from './pages/LidForm';
 
 function App()
 {
@@ -29,28 +32,37 @@ function App()
             <AanwezighedenProvider>
               <Router>
                 <NavMenu />
-                <Routes>
-                  <Route path="/" exact element={<Navigate to="/dagen" />} />
-
-                  <Route path="/dagen" exact element={
-                    <PrivateRoute path="/dagen" exact>
-                      <Dagen />
-                    </PrivateRoute>} />
-
-                  <Route path="/dagen/:id" exact element={
-                    <PrivateRoute path="/dagen/:id" exact>
-                      <Dag />
-                    </PrivateRoute>} />
-
-                  <Route path="/leden" exact element={
-                    <PrivateRoute path="/leden" exact>
-                      <Leden />
-                    </PrivateRoute>} />
-
-                  <Route path="/login" exact element={<Login />} />
-
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
+                <main>
+                  <Routes>
+                    <Route path="/" exact element={<Navigate to="/dagen" />} />
+                    <Route path="/dagen" exact element={
+                      <PrivateRoute>
+                        <Dagen />
+                      </PrivateRoute>} />
+                    <Route path="/dagen/add" exact element={
+                      <PrivateRoute>
+                        <DagForm />
+                      </PrivateRoute>} />
+                      <Route path="/dagen/:id/add" exact element={
+                      <PrivateRoute>
+                        <AanwezigheidForm />
+                      </PrivateRoute>} />
+                    <Route path="/dagen/:id" exact element={
+                      <PrivateRoute>
+                        <Dag />
+                      </PrivateRoute>} />
+                    <Route path="/leden" exact element={
+                      <PrivateRoute>
+                        <Leden />
+                      </PrivateRoute>} />
+                      <Route path="/leden/add" exact element={
+                      <PrivateRoute>
+                        <LidForm />
+                      </PrivateRoute>} />
+                    <Route path="/login" exact element={<Login />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </main>
               </Router>
             </AanwezighedenProvider>
           </LedenProvider>

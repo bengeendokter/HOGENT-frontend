@@ -1,11 +1,11 @@
 import Dagenlijst from "../components/Dagenlijst";
-import DagForm from '../components/DagForm';
+import Add from '../components/buttons/Add';
 
 export default function Dagen() {
     return (
         <>
-            <DagForm/>
             <Dagenlijst/>
+            <Add></Add>
         </>
       )
     }

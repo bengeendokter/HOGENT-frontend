@@ -9,14 +9,13 @@ const NavItem = ({
     label = "",
     children
 }) => (
-    <div>
-        <NavLink
-            to={to}
-        >
-            {children}
-            {label}
-        </NavLink>
-    </div>
+    <NavLink
+        to={to}
+        className="nav-btn"
+    >
+        {children}
+        {label}
+    </NavLink>
 );
 
 export default function NavMenu()
@@ -47,19 +46,15 @@ export default function NavMenu()
                         <>
                             <button onClick={handleLogout} className="nav-btn">
                                 <IoExitOutline size={40}
-                                    />
+                                />
                             </button>
                             <NavItem to="/dagen" >
-                                <div className={`${pathname === "/dagen" ? "nav-btn-act" : "nav-btn"}`} >
-                                    <IoCalendarOutline size={40} />
-                                </div>
+                                <IoCalendarOutline size={40} />
                             </NavItem>
                             <NavItem to="/leden">
                                 <img alt="leden logo"
                                     style={{width: 40}}
-                                    src={pathname === "/leden" ? path2 : path}
-                                    onMouseOver={e => (e.currentTarget.src = path2)}
-                                    onMouseOut={e => (e.currentTarget.src = pathname === "/leden" ? path2 : path)} />
+                                    src={pathname === "/leden" ? path2 : path} />
                             </NavItem></>
                     )
                 }

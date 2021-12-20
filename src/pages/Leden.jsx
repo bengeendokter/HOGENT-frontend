@@ -1,11 +1,11 @@
 import LedenLijst from '../components/Ledenlijst';
-import LidForm from '../components/LidForm';
+import Add from '../components/buttons/Add';
 
 export default function Leden() {
     return (
         <>
-            <LidForm/>
             <LedenLijst/>
+            <Add></Add>
         </>
       )
     }

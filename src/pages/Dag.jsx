@@ -2,8 +2,8 @@ import {useParams} from "react-router-dom";
 import React, {useContext, useEffect} from 'react';
 import Aanwezigheid from '../components/Aanwezigheid';
 import {AanwezighedenContext} from '../contexts/AanwezighedenProvider';
-import AanwezigheidForm from '../components/AanwezigheidForm';
 import { formatDate } from '../hooks/useFormat';
+import Add from '../components/buttons/Add';
 
 export default function Dag()
 {
@@ -22,10 +22,10 @@ export default function Dag()
     return (
         <>
             <h1>{formatDate(id)}</h1>
-            <AanwezigheidForm/>
             <div className="ledenlijst">
                 {aanwezigheden.map((aanwezigheid) => <Aanwezigheid key={aanwezigheid.id} props={aanwezigheid} />)}
             </div>
+            <Add></Add>
         </>
     );
 }
