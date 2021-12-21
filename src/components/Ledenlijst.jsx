@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import Lid from "./Lid"
-import { LedenContext } from '../contexts/LedenProvider';
+import {LedenContext} from '../contexts/LedenProvider';
 
 export default function Ledenlijst()
 {
-  const { leden, error, loading } = useContext(LedenContext);
+  const {leden, error, loading} = useContext(LedenContext);
 
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return <pre className="text-red-600">{error.message}</pre>
-  if (!leden) return null;
+  if(loading) return <h2>Loading...</h2 >;
 
   return (
-    <div className="ledenlijst">
+    <>
+    {(error && !leden) && <pre className="text-red-600">{error.message}</pre>}
+    {!leden && <p>Er zijn nog geen dagen</p>}
       {leden.sort((lid1, lid2) => lid1.voornaam < lid2.voornaam ? -1 : 1)
-      .map((lid) => <Lid key={lid.id} props={lid} />)}
-    </div>
+        .map((lid) => <Lid key={lid.id} props={lid} />)}
+    </>
   );
 };

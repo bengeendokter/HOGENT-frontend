@@ -1,11 +1,12 @@
 import LedenLijst from '../components/Ledenlijst';
-import Add from '../components/buttons/Add';
+import Nieuw from '../components/buttons/Nieuw';
 
-export default function Leden() {
-    return (
-        <>
-            <LedenLijst/>
-            <Add></Add>
-        </>
-      )
-    }
+export default function Leden()
+{
+  return (
+    <>
+      <LedenLijst />
+      <Nieuw></Nieuw>
+    </>
+  )
+}

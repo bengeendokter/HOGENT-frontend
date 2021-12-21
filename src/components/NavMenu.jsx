@@ -35,30 +35,20 @@ export default function NavMenu()
 
     return (
         <>
-            <nav className="flex space-x-6 nav-menu">
-
-                {
-                    !isAuthed ? (
-                        <>
-                            <NavItem to="/dagen" label="Dagen" />
-                        </>
-                    ) : (
-                        <>
-                            <button onClick={handleLogout} className="nav-btn">
-                                <IoExitOutline size={40}
-                                />
-                            </button>
-                            <NavItem to="/dagen" >
-                                <IoCalendarOutline size={40} />
-                            </NavItem>
-                            <NavItem to="/leden">
-                                <img alt="leden logo"
-                                    style={{width: 40}}
-                                    src={pathname === "/leden" ? path2 : path} />
-                            </NavItem></>
-                    )
-                }
-            </nav>
+{ isAuthed && <nav className="flex space-x-6 nav-menu">
+                <button onClick={handleLogout} className="nav-btn">
+                    <IoExitOutline size={40}
+                    />
+                </button>
+                <NavItem to="/dagen#" >
+                    <IoCalendarOutline size={40} />
+                </NavItem>
+                <NavItem to="/leden#">
+                    <img alt="leden logo"
+                        style={{width: 40}}
+                        src={pathname === "/leden" ? path2 : path} />
+                </NavItem>
+            </nav>}
         </>
     );
 }

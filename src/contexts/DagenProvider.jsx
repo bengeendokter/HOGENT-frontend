@@ -53,6 +53,7 @@ export const DagenProvider = ({children}) =>
         {
             setError(error);
             setLoading(false);
+            throw error;
         }
     }, [refreshDagen]);
 

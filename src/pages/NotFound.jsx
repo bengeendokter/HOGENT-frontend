@@ -6,9 +6,9 @@ export default function NotFound()
 
     return (
         <>
-            <h1>Pagina niet gevonden</h1>
+            <h2>Pagina niet gevonden</h2>
             <p>
-            De pagina {pathname} is niet gevonden. Gebruik de navigatie knoppen om de juiste pagina te vinden. 
+                De pagina {pathname} is niet gevonden. Gebruik de navigatie knoppen om de juiste pagina te vinden.
             </p>
         </>
     );

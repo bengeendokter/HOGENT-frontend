@@ -71,6 +71,7 @@ export const LedenProvider = ({children}) =>
         {
             setError(error);
             setLoading(false);
+            throw error;
         }
     }, [refreshLeden]);   
 

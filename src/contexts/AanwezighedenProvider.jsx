@@ -79,7 +79,7 @@ export const AanwezighedenProvider = ({children}) =>
         {
             setError(error);
             setLoading(false);
-            return false;
+            throw error;
         }
     }, [refreshAanwezigheden, refreshDagen]);
 

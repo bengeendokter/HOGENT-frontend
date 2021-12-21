@@ -39,11 +39,11 @@ function App()
                       <PrivateRoute>
                         <Dagen />
                       </PrivateRoute>} />
-                    <Route path="/dagen/add" exact element={
+                    <Route path="/dagen/nieuw" exact element={
                       <PrivateRoute>
                         <DagForm />
                       </PrivateRoute>} />
-                      <Route path="/dagen/:id/add" exact element={
+                      <Route path="/dagen/:id/nieuw" exact element={
                       <PrivateRoute>
                         <AanwezigheidForm />
                       </PrivateRoute>} />
@@ -55,7 +55,7 @@ function App()
                       <PrivateRoute>
                         <Leden />
                       </PrivateRoute>} />
-                      <Route path="/leden/add" exact element={
+                      <Route path="/leden/nieuw" exact element={
                       <PrivateRoute>
                         <LidForm />
                       </PrivateRoute>} />

@@ -40,7 +40,7 @@ export default function Login()
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="email">Email</label>
                 <input id="email" type="email" {...register("email")} />
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Wachtwoord</label>
                 <input id="password" type="password" {...register("password")} />
                 <input type="submit" disabled={loading} value="login" />
             </form>

@@ -1,11 +1,12 @@
 import Dagenlijst from "../components/Dagenlijst";
-import Add from '../components/buttons/Add';
+import Nieuw from '../components/buttons/Nieuw';
 
-export default function Dagen() {
-    return (
-        <>
-            <Dagenlijst/>
-            <Add></Add>
-        </>
-      )
-    }
+export default function Dagen()
+{
+  return (
+    <>
+      <Dagenlijst />
+      <Nieuw></Nieuw>
+    </>
+  )
+}

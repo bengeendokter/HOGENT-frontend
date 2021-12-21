@@ -2,29 +2,33 @@ import React, {useCallback, useContext} from 'react';
 import {useNavigate} from 'react-router';
 import {DagenContext} from '../contexts/DagenProvider';
 import {useForm, } from "react-hook-form";
+import VoegToe from "../components/buttons/VoegToe";
 
 export default function DagForm()
 {
-  const {createDag} = useContext(DagenContext);
-  const {register, handleSubmit} = useForm();
+  const {createDag, error, loading} = useContext(DagenContext);
+  const {register, handleSubmit, formState: { errors }} = useForm();
   const history = useNavigate();
 
   const onSubmit = useCallback(
     async ({date}) => 
     {
-      const id = date.replaceAll("-", "");
-      try
+      if(!loading)
       {
-        await createDag({id});
-        history("/dagen");
-      }
-      catch(error)
-      {
-        console.error(error);
+        const id = date.replaceAll("-", "");
+        try
+        {
+          await createDag({id});
+          history("/dagen");
+        }
+        catch(err)
+        {
+          console.error(err);
+        }
       }
     }
     ,
-    [createDag, history]);
+    [createDag, history, loading]);
 
   const toDateInputValue = useCallback(
     () => 
@@ -41,8 +45,10 @@ export default function DagForm()
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="dateid">Date</label>
-        <input id="dateid" type="date" defaultValue={toDateInputValue()} {...register("date")} />
-        <input type="submit" value="create" />
+        <input id="dateid" type="date" defaultValue={toDateInputValue()} {...register("date", {required: "dit veld is vereist",pattern:{ value: /^[0-9]{8}$/, message:"vul een datum in"}})} />
+        {error && <pre className="text-red-600">Deze dag bestaat al</pre>}
+        {errors["dateid"] && <p>{errors["dateid"].message}</p>}
+        <VoegToe></VoegToe>
       </form>
     </>
   );

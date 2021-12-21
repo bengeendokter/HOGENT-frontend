@@ -2,38 +2,44 @@ import React, {useCallback, useContext} from 'react';
 import {LedenContext} from '../contexts/LedenProvider';
 import {useForm, } from "react-hook-form";
 import {useNavigate} from 'react-router';
+import VoegToe from "../components/buttons/VoegToe";
 
 export default function DagForm()
 {
-  const {createLid} = useContext(LedenContext);
-  const {register, handleSubmit} = useForm();
+  const {createLid, loading} = useContext(LedenContext);
+  const {register, handleSubmit, formState: { errors }} = useForm();
   const history = useNavigate();
 
   const onSubmit = useCallback(
     async ({voornaam, achternaam}) => 
     {
-      try
+      if(!loading)
       {
-        await createLid({voornaam, achternaam});
-        history("/leden");
-      }
-      catch(error)
-      {
-        console.error(error);
+        try
+        {
+          await createLid({voornaam, achternaam});
+          history("/leden");
+        }
+        catch(error)
+        {
+          console.error(error);
+        }
       }
     }
     ,
-    [createLid, history]);
+    [createLid, history, loading]);
 
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="voornaam">Voornaam</label>
-        <input id="voornaam" type="text" {...register("voornaam")} />
+        <input id="voornaam" type="text" {...register("voornaam", {required: "dit veld is vereist", pattern:{ value: /^[a-zA-Z]*$/, message:"een naam mag enkel letters bevatten"}})} />
+        {errors["voornaam"] && <p>{errors["voornaam"].message}</p>}
         <label htmlFor="achternaam">Achternaam</label>
-        <input id="achternaam" type="text" {...register("achternaam")} />
-        <input type="submit" value="create" />
+        <input id="achternaam" type="text" {...register("achternaam", {required: "dit veld is vereist", pattern:{ value: /^[a-zA-Z]*$/, message:"een naam mag enkel letters bevatten"}})} />
+        {errors["achternaam"] && <p>{errors["achternaam"].message}</p>}
+        <VoegToe></VoegToe>
       </form>
     </>
   );
