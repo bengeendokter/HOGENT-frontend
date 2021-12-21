@@ -22,7 +22,8 @@ export default function Dag()
         <>
             <h1>{formatDate(id)}</h1>
             <div className="ledenlijst">
-                {aanwezigheden.map((aanwezigheid) => <Aanwezigheid key={aanwezigheid.id} props={aanwezigheid} />)}
+                {aanwezigheden.sort((aanw1, aanw2) => aanw1.voornaam < aanw2.voornaam ? -1 : 1)
+                .map((aanwezigheid) => <Aanwezigheid key={aanwezigheid.id} props={aanwezigheid} />)}
             </div>
             {!aanwezigheden.length && <h1>Geen aanwezigheden gevonden</h1>}
             <Add></Add>

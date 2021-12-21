@@ -12,7 +12,8 @@ export default function Ledenlijst()
 
   return (
     <div className="ledenlijst">
-      {leden.map((lid) => <Lid key={lid.id} props={lid} />)}
+      {leden.sort((lid1, lid2) => lid1.voornaam < lid2.voornaam ? -1 : 1)
+      .map((lid) => <Lid key={lid.id} props={lid} />)}
     </div>
   );
 };

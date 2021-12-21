@@ -1,8 +1,8 @@
 import React, {useCallback, useContext} from 'react';
 import {DagenContext} from '../contexts/DagenProvider';
-import {IoTrashOutline} from "react-icons/io5";
-import {Link} from "react-router-dom";
 import { formatDate } from '../hooks/useFormat';
+import Open from "./buttons/Open";
+import Delete from "./buttons/Delete";
 
 export default function Dag({props})
 {
@@ -19,13 +19,7 @@ export default function Dag({props})
     <div className="dag bg-blue-400 text-white">
       <div className="dag-delete">
         <p className="datum">{formatDate(datum)}</p>
-        <button
-          data-cy="transaction_remove_btn"
-          onClick={handleRemove}
-          className="delete"
-        >
-          <IoTrashOutline />
-        </button>
+
       </div>
       <div className="aanw-afw">
         <div className="aanw bg-green-400">
@@ -35,9 +29,8 @@ export default function Dag({props})
           <p>{afwezig}</p>
         </div>
       </div>
-      <Link to={`/dagen/${datum}`} >
-        Open overzicht
-      </Link>
+      <Delete handleRemove={handleRemove}></Delete>
+      <Open id={datum}></Open>
     </div>
   );
 };

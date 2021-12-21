@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import {AanwezighedenContext} from '../contexts/AanwezighedenProvider';
 import {LedenContext} from '../contexts/LedenProvider';
 import {useForm} from "react-hook-form";
+import {useNavigate} from 'react-router';
 
 export default function AanwezigheidForm()
 {
@@ -10,21 +11,30 @@ export default function AanwezigheidForm()
   const {leden} = useContext(LedenContext);
   const {register, handleSubmit} = useForm();
   const {id: dagid} = useParams();
+  const history = useNavigate();
 
   const onSubmit = useCallback(
     async ({lidid, aanwezig}) => 
     {
-      await createAanwezigheid({dagid, lidid, aanwezig});
+      try
+      {
+        await createAanwezigheid({dagid, lidid, aanwezig});
+        history(`/dagen/${dagid}`);
+      }
+      catch(error)
+      {
+        console.error(error);
+      }
     }
     ,
-    [createAanwezigheid, dagid]);
+    [createAanwezigheid, dagid, history]);
 
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <p>{dagid}</p>
-        
+
         <label htmlFor="lidid">Lid:</label>
         <select name="lid" id="lidid" {...register("lidid")}>
           <option value="">--Kies een optie--</option>
@@ -33,9 +43,9 @@ export default function AanwezigheidForm()
 
 
         <label htmlFor="aanwezig">
-        Aanwezig:
-        <input is="gui-switch" type="checkbox" role="switch" id="aanwezig" {...register("aanwezig")}/>
-      </label>
+          Aanwezig:
+          <input type="checkbox" id="aanwezig" {...register("aanwezig")} />
+        </label>
 
         <input type="submit" value="create" />
         {error && <pre className="text-red-600">{error.message}</pre>}

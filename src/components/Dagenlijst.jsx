@@ -15,7 +15,8 @@ export default function Dagenlijst()
 
   return (
     <div className="dagenlijst">
-      {dagen.map((dag) => <Dag key={dag.datum} props={dag} />)}
+      {dagen.sort((dag1, dag2) => Number(dag2.datum) - Number(dag1.datum))
+      .map((dag) => <Dag key={dag.datum} props={dag} />)}
     </div>
   );
 };

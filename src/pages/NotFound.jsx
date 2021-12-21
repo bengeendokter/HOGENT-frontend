@@ -8,7 +8,7 @@ export default function NotFound()
         <>
             <h1>Pagina niet gevonden</h1>
             <p>
-                Er is geen pagina met als url {pathname}, probeer iets anders.
+            De pagina {pathname} is niet gevonden. Gebruik de navigatie knoppen om de juiste pagina te vinden. 
             </p>
         </>
     );
