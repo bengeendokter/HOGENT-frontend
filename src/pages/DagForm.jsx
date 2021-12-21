@@ -48,7 +48,7 @@ export default function DagForm()
         <input id="dateid" type="date" defaultValue={toDateInputValue()} {...register("date", {required: "dit veld is vereist",pattern:{ value: /^[0-9]{8}$/, message:"vul een datum in"}})} />
         {error && <pre className="text-red-600">Deze dag bestaat al</pre>}
         {errors["dateid"] && <p>{errors["dateid"].message}</p>}
-        <VoegToe></VoegToe>
+        <VoegToe isDisabled={loading} ></VoegToe>
       </form>
     </>
   );

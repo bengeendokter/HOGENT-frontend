@@ -52,7 +52,7 @@ export default function AanwezigheidForm()
           <input type="checkbox" id="aanwezig" {...register("aanwezig")} />
         
         {error && <pre className="text-red-600">dit lid staat al tussen de aanwezigheden</pre>}
-        <VoegToe></VoegToe>
+        <VoegToe isDisabled={loading} ></VoegToe>
       </form>
 
     </>

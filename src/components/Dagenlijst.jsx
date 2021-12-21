@@ -6,7 +6,7 @@ export default function Dagenlijst()
 {
   const {dagen, error, loading} = useContext(DagenContext);
 
-  if(loading) return <h2>Loading...</h2>;
+  if(loading) return <h2>Laden...</h2>;
 
   return (
     <>

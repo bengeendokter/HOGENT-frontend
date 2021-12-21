@@ -6,7 +6,7 @@ export default function Ledenlijst()
 {
   const {leden, error, loading} = useContext(LedenContext);
 
-  if(loading) return <h2>Loading...</h2 >;
+  if(loading) return <h2>Laden...</h2 >;
 
   return (
     <>

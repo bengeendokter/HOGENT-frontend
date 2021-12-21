@@ -9,7 +9,7 @@
   --clr-negative: hsla(0, 54%, 65%, 1);
   --clr-active: hsla(61, 100%, 50%, 1);
   --clr-interact-hover: hsla(274, 61%, 50%, 1);
-  
+  --clr-disabled: gray;
 }
 
 ::selection {
@@ -108,6 +108,12 @@ h1 + *
 }
 
 /* buttons */
+button[disabled], button[disabled]:hover
+{
+  background-color: var(--clr-disabled);
+  cursor: default;
+}
+
 .btn-add
 {
   background-color: var(--clr-interact);

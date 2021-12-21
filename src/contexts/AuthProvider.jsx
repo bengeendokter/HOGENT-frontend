@@ -107,13 +107,17 @@ export const AuthProvider = ({
             setLoading(true);
             setError(null);
             const {token, user} = await usersApi.login(email, password);
+            if(!user)
+            {
+                throw Error("de combinatie van email en wachtwoord is niet correct");
+            }
             await setSession(token, user);
             return true;
         } catch(error)
         {
             console.error(error);
             setError('Login failed, try again');
-            return false;
+            throw error;
         } finally
         {
             setLoading(false);

@@ -39,7 +39,7 @@ export default function DagForm()
         <label htmlFor="achternaam">Achternaam</label>
         <input id="achternaam" type="text" {...register("achternaam", {required: "dit veld is vereist", pattern:{ value: /^[a-zA-Z]*$/, message:"een naam mag enkel letters bevatten"}})} />
         {errors["achternaam"] && <p>{errors["achternaam"].message}</p>}
-        <VoegToe></VoegToe>
+        <VoegToe isDisabled={loading} ></VoegToe>
       </form>
     </>
   );

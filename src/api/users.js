@@ -2,12 +2,7 @@ import {axios, axiosNoAuth} from '.';
 
 export const login = async (email, password) =>
 {
-    const {
-        data
-    } = await axiosNoAuth().post(`users/login`, {
-        email,
-        password
-    });
+    const {data} = await axiosNoAuth().post(`users/login`, {email, password});
     return data;
 };
 
