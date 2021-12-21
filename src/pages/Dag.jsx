@@ -21,10 +21,8 @@ export default function Dag()
         <>
             <h1>{formatDate(id)}</h1>
             {(error && !aanwezigheden.length) && <pre className="text-red-600">{error.message}</pre>}
-            <div className="ledenlijst">
-                {aanwezigheden.sort((aanw1, aanw2) => aanw1.voornaam < aanw2.voornaam ? -1 : 1)
-                    .map((aanwezigheid) => <Aanwezigheid key={aanwezigheid.id} props={aanwezigheid} />)}
-            </div>
+            {aanwezigheden.sort((aanw1, aanw2) => aanw1.voornaam < aanw2.voornaam ? -1 : 1)
+                .map((aanwezigheid) => <Aanwezigheid key={aanwezigheid.id} props={aanwezigheid} />)}
             {!aanwezigheden.length && <h2>Er zijn nog geen aanwezigheden</h2>}
             <Nieuw></Nieuw>
         </>

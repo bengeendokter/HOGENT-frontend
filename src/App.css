@@ -4,6 +4,7 @@
 {
   --clr-interact: hsla(274, 61%, 69%, 1);
   --clr-text: hsla(0, 0%, 100%, 1);
+  --clr-text2: hsla(0, 0%, 0%, 1);
   --clr-primary: hsla(202, 54%, 61%, 1);
   --clr-positive: hsla(148, 54%, 65%, 1);
   --clr-negative: hsla(0, 54%, 65%, 1);
@@ -39,7 +40,10 @@
 {
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  font-size: 1.875rem;
   margin-bottom: 100px;
+  color: var(--clr-text);
+  background-color: var(--clr-text);
 }
 
 main
@@ -47,18 +51,31 @@ main
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.6em;
+  margin-top: 1.5em;
+}
+
+.main-container
+{
+  display: grid;
+  border-radius: 0.75rem;
+  width: 75%;
+  justify-content: space-around;
+  background-color: var(--clr-primary);
+  padding: 0.4em;
+  max-width: 11em;
 }
 
  /* nav menu */
 .nav-menu
 {
   background-color: var(--clr-interact);
-  color: var(--clr-text);
   position: fixed;
   bottom: 0;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  grid-template-rows: 50px;
   align-items: center;
   height: 50px;
   justify-items: center;
@@ -71,6 +88,8 @@ main
   width: 100%;
   display: flex;
   justify-content: center;
+  height: 100%;
+  align-items: center;
 }
 
 .nav-btn:hover
@@ -86,7 +105,7 @@ main
 /* inputs */
 input
 {
-  accent-color: var(--clr-interact-active);
+  accent-color: var(--clr-interact-hover);
 }
 
 /* header */
@@ -97,14 +116,21 @@ h1
   left: 0;
   background-color: var(--clr-primary);
   width: 100%;
-  height: 50px;
-  color: var(--clr-text);
-  font-size: 2em;
+  height: 55px;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 h1 + *
 {
-  margin-top: 60px;
+  margin-top: 30px;
+}
+
+h2
+{
+  color: var(--clr-text2);
 }
 
 /* buttons */
@@ -117,7 +143,6 @@ button[disabled], button[disabled]:hover
 .btn-add
 {
   background-color: var(--clr-interact);
-  color: var(--clr-text);
   width: 70px;
   height: 70px;
   font-size: 3.5rem;
@@ -135,41 +160,99 @@ button[disabled], button[disabled]:hover
 .btn-dlt, .btn-open, .btn-voegtoe
 {
   background-color: var(--clr-interact);
-  color: var(--clr-text);
-  width: 70%;
+  width: clamp(1.5em , 3.2em, 100%);
   display: flex;
   justify-content: center;
   border-radius: 0.40em;
+  align-items: center;
+  padding: 0.2rem;
 }
 
+/* dagen */
+.dag
+{
+  grid-template-columns: 1fr;
+  gap: 0.2em;
+}
 
-.dagenlijst
+.aanw, .afw
+{
+  display: grid;
+  border-radius: 50%;
+  height: 3ch;
+  width: 3ch;
+  align-content: center;
+}
+
+.clr-pos
+{
+  background-color: var(--clr-positive);
+}
+
+.clr-neg
+{
+  background-color: var(--clr-negative);
+}
+
+.aanw-afw, .delete-open
+{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* leden */
+.lid
+{
+  font-size: 1.6rem;
+  grid-auto-flow: column;
+  gap: 0.2em;
+  grid-template-columns: 1fr minmax(1.5em, 2em);
+  grid-template-rows: 1fr;
+}
+
+.naam
+{
+  display: flex;
+  gap: 0.7ch;
+}
+
+/* aanwezigheden */
+.aanwezigheid
+{
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.aanwezigheid .naam
+{
+
+}
+
+.delete-update
+{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+input[type=checkbox]
+{
+  width: clamp(1.5em , 3.2em, 100%);
+}
+
+/* .dagenlijst
 {
   @apply grid grid-flow-row gap-8 justify-items-center mt-8;
 }
 
-.dag
-{
-  @apply grid w-3/4 text-3xl p-2 rounded-xl;
-  justify-content: space-around;
-  grid-template-areas: 
-  "dag-delete"
-  "aanw-afw";
-}
+
 
 .aanw-afw
 {
   @apply grid grid-flow-col gap-3;
   justify-content: space-around;
   grid-area: "aanw-afw";
-}
-
-.aanw, .afw
-{
-  @apply grid text-2xl rounded-full;
-  height: 3ch;
-  width: 3ch;
-  align-content: center;
 }
 
 .dag-delete
@@ -206,4 +289,4 @@ button[disabled], button[disabled]:hover
     "dag-delete"
     "aanw-afw";
   }
-}
+} */

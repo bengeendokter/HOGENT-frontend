@@ -12,9 +12,11 @@ export default function Lid({props})
   }, [deleteLid, id]);
 
   return (
-    <div className="bg-blue-400 text-white">
-      <p className="voornaam">{voornaam}</p>
-      <p className="achternaam">{achternaam}</p>
+    <div className="lid main-container">
+      <div className="naam">
+        <p className="voornaam">{voornaam}</p>
+        <p className="achternaam">{achternaam}</p>
+      </div>
       <Delete handleRemove={handleRemove}></Delete>
     </div>
   );

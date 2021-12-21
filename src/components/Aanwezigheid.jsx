@@ -19,15 +19,15 @@ export default function Aanwezigheid({props})
   }, [updateAanwezigheid, id, dagid, lidid, aanwezig]);
 
   return (
-    <div className={`${aanwezig ? "bg-green-400" : "bg-red-600"}  text-white`}>
-      <p className="voornaam">{voornaam}</p>
-      <p className="achternaam">{achternaam}</p>
-      <p className="aanwezig">{aanwezig}</p>
-      <label htmlFor="aanwezig">
-        Aanwezig:
-        <input type="checkbox" id="aanwezig" checked={aanwezig} onChange={handleUpdate} />
-      </label>
-    <Delete handleRemove={handleRemove}></Delete>
+    <div className={`${aanwezig ? "clr-pos" : "clr-neg"} aanwezigheid main-container`}>
+      <div className="naam">
+        <p className="voornaam">{voornaam}</p>
+        <p className="achternaam">{achternaam}</p>
+      </div>
+      <div className="delete-update">
+        <Delete handleRemove={handleRemove}></Delete>
+          <input type="checkbox" id="aanwezig" checked={aanwezig} onChange={handleUpdate} />
+      </div>
     </div>
   );
 };

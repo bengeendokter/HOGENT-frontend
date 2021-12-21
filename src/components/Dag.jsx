@@ -16,21 +16,20 @@ export default function Dag({props})
   }, [deleteDag, datum]);
 
   return (
-    <div className="dag bg-blue-400 text-white">
-      <div className="dag-delete">
+    <div className="dag main-container">
         <p className="datum">{formatDate(datum)}</p>
-
-      </div>
       <div className="aanw-afw">
-        <div className="aanw bg-green-400">
+        <div className="aanw clr-pos">
           <p>{aanwezig}</p>
         </div>
-        <div className="afw bg-red-400">
+        <div className="afw clr-neg">
           <p>{afwezig}</p>
         </div>
       </div>
-      <Delete handleRemove={handleRemove}></Delete>
-      <Open id={datum}></Open>
+      <div className="delete-open">
+        <Delete handleRemove={handleRemove}></Delete>
+        <Open id={datum}></Open>
+      </div>
     </div>
   );
 };

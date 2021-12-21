@@ -35,7 +35,7 @@ export default function NavMenu()
 
     return (
         <>
-{ isAuthed && <nav className="flex space-x-6 nav-menu">
+{ isAuthed && <nav className="nav-menu">
                 <button onClick={handleLogout} className="nav-btn">
                     <IoExitOutline size={40}
                     />
