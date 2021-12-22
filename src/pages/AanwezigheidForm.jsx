@@ -38,7 +38,7 @@ export default function AanwezigheidForm()
   return (
     <>
       <h1>{formatDate(dagid)}</h1>
-      {loading && <h2>Laden...</h2>}
+      <h2>{loading && "Laden..."}</h2>
       <form className='main-container aanwezigheid-form' onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="lidid">Lid:</label>
         <select name="lid" id="lidid" {...register("lidid", {required: "dit veld is vereist"})}>

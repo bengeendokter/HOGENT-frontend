@@ -18,7 +18,7 @@ export default function Dag()
     return (
         <>
             <h1>{formatDate(id)}</h1>
-            {loading && <h2>Laden...</h2>}
+            <h2>{loading && "Laden..."}</h2>
             {(error && !aanwezigheden.length) && <pre className="text-red-600">{error.message}</pre>}
             {aanwezigheden.sort((aanw1, aanw2) => aanw1.voornaam < aanw2.voornaam ? -1 : 1)
                 .map((aanwezigheid) => <Aanwezigheid key={aanwezigheid.id} props={aanwezigheid} />)}
