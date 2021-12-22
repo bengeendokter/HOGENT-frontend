@@ -10,14 +10,32 @@
   --clr-negative: hsla(0, 54%, 65%, 1);
   --clr-active: hsla(61, 100%, 50%, 1);
   --clr-interact-hover: hsla(274, 61%, 50%, 1);
-  --clr-disabled: gray;
+  --clr-disabled: hsla(0, 0%, 50%, 1);
 }
+
+/* darktheme */
+/* @media (prefers-color-scheme: dark)
+{
+    :root
+    {
+      --clr-interact: hsla(274, 61%, 68%, 1);
+      --clr-text: hsla(0, 0%, 0%, 1);
+      --clr-text2: hsla(0, 0%, 100%, 1);
+      --clr-primary: hsla(202, 54%, 61%, 1);
+      --clr-positive: hsla(148, 54%, 65%, 1);
+      --clr-negative: hsla(0, 54%, 65%, 1);
+      --clr-active: hsla(61, 100%, 50%, 1);
+      --clr-interact-hover: hsla(274, 61%, 50%, 1);
+      --clr-disabled: hsla(0, 0%, 50%, 1);
+    }
+} */
 
 ::selection {
   color: hsla(0, 0%, 0%, 1);;
   background: var(--clr-text);
 }
 
+/* scrollbar */
 ::-webkit-scrollbar {
   width: 0em;
 }
@@ -36,6 +54,11 @@
   background: var(--clr-interact-hover);
 }
 
+html
+{
+  background-color: var(--clr-text);
+}
+
 .App
 {
   text-align: center;
@@ -43,7 +66,6 @@
   font-size: 1.875rem;
   margin-bottom: 100px;
   color: var(--clr-text);
-  background-color: var(--clr-text);
 }
 
 main
@@ -251,6 +273,7 @@ input:hover
 select, input[type=text], input[type=email], input[type=password], input[type=date]
 {
   color: var(--clr-text2);
+  background-color: var(--clr-text);
   width: 100%;
   font-size: 1.4rem;
   max-width: 16rem;
