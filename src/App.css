@@ -48,11 +48,14 @@
 
 main
 {
-  display: flex;
+  display: grid;
   flex-direction: column;
   align-items: center;
   gap: 0.6em;
   margin-top: 1.5em;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  justify-items: center;
 }
 
 .main-container
@@ -220,11 +223,6 @@ button[disabled], button[disabled]:hover
   justify-items: center;
 }
 
-.aanwezigheid .naam
-{
-
-}
-
 .delete-update
 {
   display: flex;
@@ -280,52 +278,17 @@ strong::before
   content: "❌ ";
 }
 
-/* .dagenlijst
-{
-  @apply grid grid-flow-row gap-8 justify-items-center mt-8;
-}
-
-
-
-.aanw-afw
-{
-  @apply grid grid-flow-col gap-3;
-  justify-content: space-around;
-  grid-area: "aanw-afw";
-}
-
-.dag-delete
-{
-  @apply grid grid-flow-col gap-3;
-  justify-content: space-around;
-  grid-area: dag-delete;
-  grid-template-areas: 
-  "datum delete";
-}
-
-.datum
-{
-  grid-area: datum;
-}
-
-.delete
-{
-  grid-area: delete;
-}
-
-
-
+/* desktop styles */
 @media screen and (min-width: 800px)
 {
-  .dagenlijst
+  main
   {
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   }
 
-  .dag
+  h2, .btn-add, form
   {
-    grid-template-areas: 
-    "dag-delete"
-    "aanw-afw";
+    grid-column-end: -1;
+    grid-column-start: 1;
   }
-} */
+}
