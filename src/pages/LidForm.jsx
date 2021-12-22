@@ -32,13 +32,14 @@ export default function DagForm()
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {loading && <h2>Laden...</h2>}
+      <form className='main-container lid-form' onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="voornaam">Voornaam</label>
         <input id="voornaam" type="text" {...register("voornaam", {required: "dit veld is vereist", pattern:{ value: /^[a-zA-Z]*$/, message:"een naam mag enkel letters bevatten"}})} />
-        {errors["voornaam"] && <p>{errors["voornaam"].message}</p>}
+        {errors["voornaam"] && <strong>{errors["voornaam"].message}</strong>}
         <label htmlFor="achternaam">Achternaam</label>
         <input id="achternaam" type="text" {...register("achternaam", {required: "dit veld is vereist", pattern:{ value: /^[a-zA-Z]*$/, message:"een naam mag enkel letters bevatten"}})} />
-        {errors["achternaam"] && <p>{errors["achternaam"].message}</p>}
+        {errors["achternaam"] && <strong>{errors["achternaam"].message}</strong>}
         <VoegToe isDisabled={loading} ></VoegToe>
       </form>
     </>

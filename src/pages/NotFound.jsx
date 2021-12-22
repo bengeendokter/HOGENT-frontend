@@ -7,8 +7,8 @@ export default function NotFound()
     return (
         <>
             <h2>Pagina niet gevonden</h2>
-            <p>
-                De pagina {pathname} is niet gevonden. Gebruik de navigatie knoppen om de juiste pagina te vinden.
+            <p className='main-container text-xl'>
+                De pagina <em className='inline'>{pathname}</em> kon niet gevonden worden. Gebruik de navigatie knoppen om de juiste pagina te vinden.
             </p>
         </>
     );

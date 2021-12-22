@@ -2,7 +2,7 @@
 
 :root 
 {
-  --clr-interact: hsla(274, 61%, 69%, 1);
+  --clr-interact: hsla(274, 61%, 68%, 1);
   --clr-text: hsla(0, 0%, 100%, 1);
   --clr-text2: hsla(0, 0%, 0%, 1);
   --clr-primary: hsla(202, 54%, 61%, 1);
@@ -102,12 +102,6 @@ main
   color: var(--clr-active);
 }
 
-/* inputs */
-input
-{
-  accent-color: var(--clr-interact-hover);
-}
-
 /* header */
 h1
 {
@@ -131,6 +125,7 @@ h1 + *
 h2
 {
   color: var(--clr-text2);
+  font-size: 1.7rem;
 }
 
 /* buttons */
@@ -160,12 +155,14 @@ button[disabled], button[disabled]:hover
 .btn-dlt, .btn-open, .btn-voegtoe
 {
   background-color: var(--clr-interact);
-  width: clamp(1.5em , 3.2em, 100%);
+  width: 3.2em;
   display: flex;
   justify-content: center;
   border-radius: 0.40em;
   align-items: center;
   padding: 0.2rem;
+  min-width: max-content;
+  max-width: 100%;
 }
 
 /* dagen */
@@ -238,7 +235,49 @@ button[disabled], button[disabled]:hover
 
 input[type=checkbox]
 {
-  width: clamp(1.5em , 3.2em, 100%);
+  width: 30px;
+  height: 30px;
+}
+
+input
+{
+  accent-color: var(--clr-interact);
+}
+
+input:hover
+{
+  accent-color: var(--clr-interact-hover);
+}
+
+/* form */
+select, input[type=text], input[type=email], input[type=password], input[type=date]
+{
+  color: var(--clr-text2);
+  width: 100%;
+  font-size: 1.4rem;
+  max-width: 16rem;
+  text-align: center;
+  border-radius: 1em;
+}
+
+form.main-container
+{
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 0.4em;
+}
+
+strong
+{
+  color: var(--clr-negative);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px var(--clr-text);
+}
+
+strong::before
+{
+  content: "❌ ";
 }
 
 /* .dagenlijst

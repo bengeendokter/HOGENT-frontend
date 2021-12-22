@@ -7,7 +7,7 @@ import VoegToe from "../components/buttons/VoegToe";
 export default function DagForm()
 {
   const {createDag, error, loading} = useContext(DagenContext);
-  const {register, handleSubmit, formState: { errors }} = useForm();
+  const {register, handleSubmit} = useForm();
   const history = useNavigate();
 
   const onSubmit = useCallback(
@@ -43,11 +43,11 @@ export default function DagForm()
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {loading && <h2>Laden...</h2>}
+      <form className='main-container' onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="dateid">Date</label>
-        <input id="dateid" type="date" defaultValue={toDateInputValue()} {...register("date", {required: "dit veld is vereist",pattern:{ value: /^[0-9]{8}$/, message:"vul een datum in"}})} />
-        {error && <pre className="text-red-600">Deze dag bestaat al</pre>}
-        {errors["dateid"] && <p>{errors["dateid"].message}</p>}
+        <input id="dateid" type="date" defaultValue={toDateInputValue()} {...register("date")} />
+        {error && <strong>deze dag bestaat al</strong>}
         <VoegToe isDisabled={loading} ></VoegToe>
       </form>
     </>

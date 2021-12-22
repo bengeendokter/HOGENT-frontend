@@ -42,15 +42,15 @@ export default function Login()
     return (
         <>
             {loading && <h2>Laden...</h2>}
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className='main-container' onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="email">Email</label>
                 <input id="email" type="email" {...register("email", {required: "dit veld is vereist"})} />
-                {errors["email"] && <p>{errors["email"].message}</p>}
+                {errors["email"] && <strong>{errors["email"].message}</strong>}
                 <label htmlFor="password">Wachtwoord</label>
                 <input id="password" type="password" {...register("password", {required: "dit veld is vereist"})} />
-                {errors["password"] && <p>{errors["password"].message}</p>}
+                {errors["password"] && <strong>{errors["password"].message}</strong>}
                 {
-                    error && <p className="text-red-500">de combinatie van email en wachtwoord is niet correct</p>
+                    error && <strong>de combinatie van email en wachtwoord is niet correct</strong>
                 }
                 <VoegToe label="Login" isDisabled={loading} ></VoegToe>
             </form>

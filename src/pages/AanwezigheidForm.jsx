@@ -38,20 +38,21 @@ export default function AanwezigheidForm()
   return (
     <>
       <h1>{formatDate(dagid)}</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {loading && <h2>Laden...</h2>}
+      <form className='main-container aanwezigheid-form' onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="lidid">Lid:</label>
         <select name="lid" id="lidid" {...register("lidid", {required: "dit veld is vereist"})}>
           <option value="">--Kies een optie--</option>
           {leden.map((lid) => <option key={lid.id} value={lid.id}>{lid.voornaam + ' ' + lid.achternaam}</option>)}
         </select>
-        {errors["lidid"] && <p>{errors["lidid"].message}</p>}
+        {errors["lidid"] && <strong>{errors["lidid"].message}</strong>}
 
 
         <label htmlFor="aanwezig">
           Aanwezig:</label>
-          <input type="checkbox" id="aanwezig" {...register("aanwezig")} />
+          <input type="checkbox" defaultChecked id="aanwezig" {...register("aanwezig")} />
         
-        {error && <pre className="text-red-600">dit lid staat al tussen de aanwezigheden</pre>}
+        {error && <strong>dit lid staat al tussen de aanwezigheden</strong>}
         <VoegToe isDisabled={loading} ></VoegToe>
       </form>
 
