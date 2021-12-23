@@ -22,7 +22,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "test": "cypress open",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9",
+    "cypress": "^9.2.0",
     "postcss": "^7",
     "pwa-asset-generator": "^6.0.5",
     "serve": "^13.0.2",
