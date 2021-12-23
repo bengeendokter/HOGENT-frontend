@@ -17,7 +17,7 @@ export default function Dag({props})
 
   return (
     <div className="dag main-container">
-        <p className="datum">{formatDate(datum)}</p>
+        <p className="datum" data-cy={`dag_datum_${datum}`}>{formatDate(datum)}</p>
       <div className="aanw-afw">
         <div className="aanw clr-pos">
           <p>{aanwezig}</p>
@@ -27,7 +27,7 @@ export default function Dag({props})
         </div>
       </div>
       <div className="delete-open">
-        <Delete handleRemove={handleRemove}></Delete>
+        <Delete data-cy={`dag_delete_${datum}`} handleRemove={handleRemove}></Delete>
         <Open id={datum}></Open>
       </div>
     </div>

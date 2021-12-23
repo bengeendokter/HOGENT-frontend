@@ -14,10 +14,10 @@ export default function Lid({props})
   return (
     <div className="lid main-container">
       <div className="naam">
-        <p className="voornaam">{voornaam}</p>
-        <p className="achternaam">{achternaam}</p>
+        <p className="voornaam" data-cy="voornaam">{voornaam}</p>
+        <p className="achternaam" data-cy="achternaam">{achternaam}</p>
       </div>
-      <Delete handleRemove={handleRemove}></Delete>
+      <Delete data-cy="lid_delete" handleRemove={handleRemove}></Delete>
     </div>
   );
 };

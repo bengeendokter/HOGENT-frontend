@@ -6,7 +6,7 @@ export default function Dagen()
   return (
     <>
       <Dagenlijst />
-      <Nieuw></Nieuw>
+      <Nieuw data-cy="add_dag_btn" ></Nieuw>
     </>
   )
 }

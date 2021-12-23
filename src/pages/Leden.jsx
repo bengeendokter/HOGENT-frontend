@@ -6,7 +6,7 @@ export default function Leden()
   return (
     <>
       <LedenLijst />
-      <Nieuw></Nieuw>
+      <Nieuw data-cy="add_lid_btn"></Nieuw>
     </>
   )
 }

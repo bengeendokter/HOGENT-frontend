@@ -46,9 +46,9 @@ export default function DagForm()
       {loading && <h2>Laden...</h2>}
       <form className='main-container' onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="dateid">Date</label>
-        <input id="dateid" type="date" defaultValue={toDateInputValue()} {...register("date")} />
-        {error && <strong>deze dag bestaat al</strong>}
-        <VoegToe isDisabled={loading} ></VoegToe>
+        <input id="dateid" type="date" data-cy="datum_input" defaultValue={toDateInputValue()} {...register("date")} />
+        {error && <strong data-cy="label_dagform_error">deze dag bestaat al</strong>}
+        <VoegToe isDisabled={loading} data-cy="voeg_toe_dag" ></VoegToe>
       </form>
     </>
   );
