@@ -5,12 +5,7 @@ export const axios = () =>
 {   
     const token = localStorage.getItem(config.token_key);
 
-    const axiosWithToken = axiosRoot.create({
-        baseURL: process.env.REACT_APP_BACKEND_BASE_URL || config.base_url
-        , headers: {
-            Authorization: `Bearer ${token}`,
-        }
-    })
+    const axiosWithToken = axiosNoAuth();
 
     // TODO remove duplicate code
     function parseJwt(token)
@@ -45,7 +40,7 @@ export const axios = () =>
 export const axiosNoAuth = () =>
 {
     const axiosWithToken = axiosRoot.create({
-        baseURL: config.base_url
+        baseURL: process.env.REACT_APP_BACKEND_BASE_URL || config.base_url
         , headers: {
             Authorization: `Bearer ${localStorage.getItem(config.token_key)}`,
         }
