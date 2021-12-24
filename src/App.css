@@ -309,7 +309,7 @@ strong::before
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   }
 
-  h2, .btn-add, form
+  h2, .btn-add, form, .niet-gevonden
   {
     grid-column-end: -1;
     grid-column-start: 1;
